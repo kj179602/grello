@@ -2,5 +2,6 @@ package grello
 
 class BoardController {
 
-     static scaffold = true;
+     def scaffold = Board;
+	
 }
