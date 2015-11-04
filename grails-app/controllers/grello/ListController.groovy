@@ -1,6 +1,6 @@
 package grello
 
-class ListController {
+class ListController extends SecureController{
 
     def scaffold = List;
 }

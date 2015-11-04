@@ -1,6 +1,6 @@
 package grello
 
-class BoardController {
+class BoardController extends SecureController{
 
     //def scaffold = Board;
 	
