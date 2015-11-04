@@ -10,6 +10,17 @@ class BoardController extends SecureController{
 		[boardInstanceCount: Board.count(), boardInstanceList: Board.list(params)];
 	}
 	
+	def create(){}
 	
+	def handleCreate(){
+		def board = new Board(params)
+		 
+		if ( board.save() ){
+			flash.user = user
+			redirect(action:create)
+		}
+		
+	 }
+
 	
 }

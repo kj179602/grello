@@ -14,18 +14,24 @@
 		<div class="nav" role="navigation">
 			<ul>
                 <li><g:link controller="board">Tablice</g:link></li>
-                 <li><a href="/grello/board/create">New board</a></li>
+                <li><a href="/grello/board/create">New board</a></li>
                 <li><a href="/logout">Logout</a></li>
 			</ul>
 		</div>
 	
-	<br>
-		<table width="50">
-			<thead>
-					<tr>
-						<g:sortableColumn property="tableName" title="${message(code: 'board.boardName.label', default: 'Board Name')}" />
-					</tr>
-			</thead>
+	<g:form action="handleCreate" >
+		<table>
+			<tr class="prop" >
+				<td class="name" ><label for="nazwa" >Nazwa tablicy:</label></td>
+				<td class="value" ><input type="text" id="nazwaTab" name="nazwaTab" value="" ></td>
+			</tr>
+			
+			<tr>
+			<td></td>
+			<td><input type="submit" value="Utworz" /></td>
+			</tr>
 		</table>
+	</g:form>
+	
 	</body>
 </html>
