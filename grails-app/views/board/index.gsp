@@ -24,7 +24,7 @@
 			<thead>
 					<tr>
 						
-							<g:each in="${boardList}" var="p">
+							<g:each in="${boardName}" var="p">
 							<li>${p}</li>
 							</g:each>		
 					</tr>

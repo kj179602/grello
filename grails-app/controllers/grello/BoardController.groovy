@@ -1,9 +1,8 @@
 package grello
 
 class BoardController extends SecureController{
-
-    //def scaffold = Board;
 	
+	List boardList
 	
 	def index(){
 		
@@ -15,7 +14,7 @@ class BoardController extends SecureController{
 		def board = new Board(params)
 		 
 		if ( board.save() ){
-			flash.board = board
+			flash.boardName = board
 			redirect(action:create)
 		}
 		
