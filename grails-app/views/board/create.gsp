@@ -22,8 +22,8 @@
 	<g:form action="handleCreate" >
 		<table>
 			<tr class="prop" >
-				<td class="name" ><label for="nazwaTab" >Nazwa tablicy:</label></td>
-				<td class="value" ><input type="text" id="nazwaTab" name="nazwaTab" value="" ></td>
+				<td class="name" ><label for="bName" >Nazwa tablicy:</label></td>
+				<td class="value" ><input type="text" id="bName" name="bName" value="" ></td>
 			</tr>
 			<tr>
 			<td></td>

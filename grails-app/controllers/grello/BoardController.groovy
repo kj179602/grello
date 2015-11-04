@@ -9,11 +9,11 @@ class BoardController extends SecureController{
 	
 	def create(){}
 	
-	def handleCreate(){
+	def handleCreate = {
 		def board = new Board(params)
-		 
+		
 		if ( board.save() ){
-			flash.boardName = board
+			flash.board = board
 			redirect(action:create)
 		}
 		
