@@ -2,10 +2,9 @@ package grello
 
 class BoardController extends SecureController{
 	
-	List boardList
-	
 	def index(){
-		
+		def boards = Board.list()
+		[boards:boards]
 	}
 	
 	def create(){}

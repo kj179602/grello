@@ -20,12 +20,12 @@
 		</div>
 	
 	<br>
-		<table width="50">
+		<table>
 			<thead>
 					<tr>
 						
-							<g:each in="${boardName}" var="p">
-							<li>${p}</li>
+							<g:each in="${boards}" var="board">
+							<p>${board.boardName}</p>
 							</g:each>		
 					</tr>
 			</thead>
