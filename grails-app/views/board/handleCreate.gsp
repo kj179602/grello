@@ -19,18 +19,8 @@
 			</ul>
 		</div>
 	
-	<g:form action="handleCreate" >
-		<table>
-			<tr class="prop" >
-				<td class="name" ><label for="nazwa" >Nazwa tablicy:</label></td>
-				<td class="value" ><input type="text" id="nazwaTab" name="nazwaTab" value="" ></td>
-			</tr>
-			<tr>
-			<td></td>
-			<td><input type="submit" value="Utworz" /></td>
-			</tr>
-		</table>
-	</g:form>
+	<br><br>
+	<p><b>Utworzono nowa tablice</b></p>
 	
 	</body>
 </html>

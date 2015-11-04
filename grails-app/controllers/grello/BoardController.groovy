@@ -5,9 +5,8 @@ class BoardController extends SecureController{
     //def scaffold = Board;
 	
 	
-	def index(Integer max){
-		params.max = Math.min(max ?: 10, 100);
-		[boardInstanceCount: Board.count(), boardInstanceList: Board.list(params)];
+	def index(){
+		
 	}
 	
 	def create(){}
@@ -16,7 +15,7 @@ class BoardController extends SecureController{
 		def board = new Board(params)
 		 
 		if ( board.save() ){
-			flash.user = user
+			flash.board = board
 			redirect(action:create)
 		}
 		

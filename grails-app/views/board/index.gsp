@@ -23,7 +23,10 @@
 		<table width="50">
 			<thead>
 					<tr>
-						<g:sortableColumn property="tableName" title="${message(code: 'board.boardName.label', default: 'Board Name')}" />
+						
+							<g:each in="${boardList}" var="p">
+							<li>${p}</li>
+							</g:each>		
 					</tr>
 			</thead>
 		</table>
