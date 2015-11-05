@@ -4,10 +4,10 @@ class BootStrap {
 
     def init = { servletContext ->
 		new User(
-			login: 'Kasia',
-			firstName: 'Katarzyna' ,
-			lastName: 'Jordan' ,
-			password: 'qwert' ,
+			login: 'log',
+			firstName: 'Jane' ,
+			lastName: 'Doe' ,
+			password: 'log' ,
 			email: 'sa@wp.org' 
 			).save()
     }
