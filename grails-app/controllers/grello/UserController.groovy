@@ -32,20 +32,24 @@ class UserController {
 	def register = {}
 	
 	 def handleRegistration = {
-		 def user = new User( params )
-		 
+		def user = new User( params )
 		 if(params.password != params.confirm) {
-			 flash.message = "The two passwords you entered don't match!"
-			 redirect(action:register)
-		 }
+			 	flash.message = "The two passwords you entered don't match!"
+				redirect(action:register)
+		 			}
 		 else {
 			 if( user.save() ) {
 				 redirect(controller:'user', action:'login')
-			 }
+			 	}
 			 else {
-				 flash.user = user
-				 redirect(action:register)
-			 }
-		 }
-	}
+				 	flash.user = user
+					redirect(action:register)
+			 		}
+		 		}
+	 	}
+	 
+	 def logout(){
+		 session.user = null
+		 redirect (controller: 'user', action: 'login')
+	 }
 }
