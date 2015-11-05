@@ -14,21 +14,23 @@
 		<div class="nav" role="navigation">
 			<ul>
                 <li><g:link controller="board">Tablice</g:link></li>
-                 <li><a href="/grello/board/create">New board</a></li>
+                <li><a href="/grello/board/create">New board</a></li>
                 <li><a href="/logout">Logout</a></li>
 			</ul>
 		</div>
 	
-	<br>
+	<g:form action="handleCreate" >
 		<table>
-			<thead>
-					<tr>
-						
-							<g:each in="${boards}" var="board">
-							<p>${board.boardName}</p>
-							</g:each>		
-					</tr>
-			</thead>
+			<tr class="prop" >
+				<td class="name" ><label for="bName" >Nazwa tablicy:</label></td>
+				<td class="value" ><input type="text" id="bName" name="bName" value="" ></td>
+			</tr>
+			<tr>
+			<td></td>
+			<td><input type="submit" value="Utworz" /></td>
+			</tr>
 		</table>
+	</g:form>
+	
 	</body>
 </html>

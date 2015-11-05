@@ -14,21 +14,13 @@
 		<div class="nav" role="navigation">
 			<ul>
                 <li><g:link controller="board">Tablice</g:link></li>
-                 <li><a href="/grello/board/create">New board</a></li>
+                <li><a href="/grello/board/create">New board</a></li>
                 <li><a href="/logout">Logout</a></li>
 			</ul>
 		</div>
 	
-	<br>
-		<table>
-			<thead>
-					<tr>
-						
-							<g:each in="${boards}" var="board">
-							<p>${board.boardName}</p>
-							</g:each>		
-					</tr>
-			</thead>
-		</table>
+	<br><br>
+	<p><b>Utworzono nowa tablice</b></p>
+	
 	</body>
 </html>
