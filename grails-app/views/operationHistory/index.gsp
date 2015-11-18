@@ -12,7 +12,8 @@
 		<div class="nav" role="navigation">
 			<ul>
 				<li><a class="home" href="${createLink(uri: '/')}"><g:message code="default.home.label"/></a></li>
-				
+				<li><a href="${createLink(uri: '/user/logout')}">Logout</a></li>
+				<li><a href="${createLink(uri: '/board/index')}">Board</a></li>
 			</ul>
 		</div>
 		<div id="list-operationHistory" class="content scaffold-list" role="main">

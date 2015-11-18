@@ -25,7 +25,7 @@
 	<body>
 		<div id="grailsLogo" role="banner"><a href="http://grails.org"><asset:image src="logo-blue-lggrellomale.png" alt="Grails"/>
 		</a>
-		<g:loginToggle />
+		
 		</div>
 		
 		<g:layoutBody/>

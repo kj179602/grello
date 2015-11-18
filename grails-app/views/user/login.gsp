@@ -8,7 +8,7 @@
 	<div class="nav" role="navigation">
 			<ul>
 				
-				<li><a href="${createLink(uri: 'user/register')}">Register</a></li>
+				<li><a href="${createLink(uri: '/user/register')}">Register</a></li>
 			</ul>
 		</div>
 		<div class="message">${flash.message}</div>
