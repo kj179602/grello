@@ -5,7 +5,7 @@ import spock.lang.Specification
 
 /**
  * See the API for {@link grails.test.mixin.web.ControllerUnitTestMixin} for usage instructions
- *//*
+ */
 @TestFor(OperationHistoryController)
 class OperationHistoryControllerSpec extends Specification {
 
@@ -18,4 +18,3 @@ class OperationHistoryControllerSpec extends Specification {
     void "test something"() {
     }
 }
-*/
