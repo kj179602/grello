@@ -4,10 +4,10 @@ class Task {
 	
 	String taskName
 	String description
+	List list
 	
 	static belongsTo = List
-	
-    static constraints = {
+	static constraints = {
 		taskName()
 		description(maxLength:1000)
     }
@@ -15,4 +15,4 @@ class Task {
 	String toString(){
 		return "$taskName"
 	}
-}
+	}

@@ -4,14 +4,15 @@ class List {
 
 	String listName;
 	Board board;
-	Task task;
-	
+		
 	static belongsTo = Board;
-	static hasMany = [task: Task]
-	String toString(){
-		return "$listName"
-	}
+	static hasMany = [tasks: Task]
+	
     static constraints = {
 		listName()
     }
+	
+	String toString(){
+		return "$listName"
+	}
 }

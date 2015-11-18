@@ -16,7 +16,7 @@ class BoardController extends SecureController{
 		
 		}
 	def delete (Board board) {
-		operationCode = "delete board"+"$board.boardName"
+		operationCode = "delete board "+"$board.boardName"
 		if(board == null){
 			flash.message = message(code: 'default.updated.message', args: [message(code: 'Board.label', default: 'Board'), board.id])
 			return

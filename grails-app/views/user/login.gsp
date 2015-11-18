@@ -5,10 +5,15 @@
 		<title>Login</title>
 	</head>
 	<body>
+	<div class="nav" role="navigation">
+			<ul>
+				
+				<li><a href="${createLink(uri: 'user/register')}">Register</a></li>
+			</ul>
+		</div>
 		<div class="message">${flash.message}</div>
 			<p>
-			Welcome to Grello. Login below or
-			<g:link action="register">register here</g:link>.
+			Welcome to Grello
 			</p>
 		<g:if test="${flash.message}" >
 			<div class="message" >${flash.message}</div>

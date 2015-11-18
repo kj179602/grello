@@ -1,29 +1,52 @@
-<%@ page contentType="text/html;charset=UTF-8" %>
+
+<%@ page import="grello.Task" %>
+<!DOCTYPE html>
 <html>
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1"/>
-<meta name="layout" content="main"/>
-<title>Zadania</title>
-</head>
-<body>
-  <div class="nav" role="navigation">
+	<head>
+		<meta name="layout" content="main">
+		<g:set var="entityName" value="${message(code: 'task.label', default: 'Task')}" />
+		<title><g:message code="default.list.label" args="[entityName]" /></title>
+	</head>
+	<body>
+		<a href="#list-task" class="skip" tabindex="-1"><g:message code="default.link.skip.label" default="Skip to content&hellip;"/></a>
+		<div class="nav" role="navigation">
 			<ul>
-                <li><g:link controller="task">Zadania</g:link></li>
-                 <li><a href="/grello/task/create">New Task</a></li>
-               <!--   <li><a href="/logout">Logout</a></li> -->
+				<li><a class="home" href="${createLink(uri: '/')}"><g:message code="default.home.label"/></a></li>
+				<li><g:link class="create" action="create"><g:message code="default.new.label" args="[entityName]" /></g:link></li>
 			</ul>
 		</div>
-	
-	<br>
-		<table>
+		<div id="list-task" class="content scaffold-list" role="main">
+			<h1><g:message code="default.list.label" args="[entityName]" /></h1>
+			<g:if test="${flash.message}">
+				<div class="message" role="status">${flash.message}</div>
+			</g:if>
+			<table>
 			<thead>
 					<tr>
-						
-							<g:each in="${tasks}" var="task">
-							<p>${task.taskName}</p>
-							</g:each>		
+					
+						<g:sortableColumn property="taskName" title="${message(code: 'task.taskName.label', default: 'Task Name')}" />
+					
+						<g:sortableColumn property="description" title="${message(code: 'task.description.label', default: 'Description')}" />
+					
+						<th><g:message code="task.list.label" default="List" /></th>
+					
 					</tr>
-			</thead>
-		</table>
-</body>
+				</thead>
+				<tbody>
+				<g:each in="${taskList}" status="i" var="task">
+					<tr class="${(i % 2) == 0 ? 'even' : 'odd'}">
+					
+						<td><g:link action="show" id="${task.id}">${fieldValue(bean: task, field: "taskName")}</g:link></td>
+					
+						<td>${fieldValue(bean: task, field: "description")}</td>
+					
+						<td>${fieldValue(bean: task, field: "list")}</td>
+					
+					</tr>
+				</g:each>
+				</tbody>
+			</table>
+			
+		</div>
+	</body>
 </html>
