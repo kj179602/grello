@@ -2,5 +2,89 @@ package grello
 
 class ListController extends SecureController{
 
-    def scaffold = List;
+   	static allowedMethods = [save: "POST", update: "PUT", delete: "DELETE"]
+   
+	def index() {
+		
+		[ listsList: List.list( params ) ]
+		}
+	
+	def show () {
+		[ lists : List.get( params.id ) ]
+		
+		}
+	def delete (List lists) {
+		if(lists == null){
+			flash.message = message(code: 'default.updated.message', args: [message(code: 'Lists.label', default: 'List'), lists.id])
+			return
+		} 
+		lists.delete flush:true
+
+        request.withFormat {
+            form multipartForm {
+                flash.message = message(code: 'default.deleted.message', args: [message(code: 'List.label', default: 'List'), lists.id])
+                redirect action:"index", method:"GET"
+            }
+            
+        }
+		
+		}
+	def edit = {
+		def lists = List.get( params.id )
+		if(!lists) {
+		flash.message = "List not found with id ${params.id}"
+		redirect(action:index)
+			}
+		else {
+		return [ lists : lists ]
+			}
+		}
+	
+	def update(List lists) {
+		 
+		if(lists == null) {
+			request.withFormat {
+            form multipartForm {
+                flash.message = message(code: 'default.not.found.message', args: [message(code: 'lists.label', default: 'List'), params.id])
+                redirect action: "index", method: "GET"
+            }
+            '*'{ render status: NOT_FOUND }
+        }
+			return
+		}
+		if (lists.hasErrors()) {
+			respond lists.errors, view:'edit'
+			return
+		}
+		lists.save flush:true
+		request.withFormat {
+            form multipartForm {
+                flash.message = message(code: 'default.updated.message', args: [message(code: 'List.label', default: 'List'), lists.id])
+                redirect lists
+            }
+            '*'{ respond lists, [status: OK] }
+        }
+		}
+	def create()  {
+		respond new List(params)
+		
+		}
+	def save (List lists){
+		if (lists == null) {
+			flash.message = message(code: 'default.not.found.message', args: [message(code: 'lists.label', default: 'List'), params.id])
+			return
+		}
+		if (lists.hasErrors()) {
+			respond lists.errors, view:'create'
+			return
+		}
+		lists.save flush:true
+		 request.withFormat {
+            form multipartForm {
+                flash.message = message(code: 'default.created.message', args: [message(code: 'List.label', default: 'List'), lists.id])
+                redirect lists
+            }
+            '*' { respond lists, [status: CREATED] }
+        }
+	}
 }

@@ -15,7 +15,7 @@
 			<ul>
                 <li><g:link controller="board">Tablice</g:link></li>
                  <li><a href="/grello/board/create">New board</a></li>
-                <li><a href="/logout">Logout</a></li>
+               <!--   <li><a href="/logout">Logout</a></li> -->
 			</ul>
 		</div>
 	

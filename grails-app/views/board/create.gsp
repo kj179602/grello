@@ -19,7 +19,7 @@
 			</ul>
 		</div>
 	
-	<g:form action="handleCreate" >
+	<g:form action="save" >
 		<table>
 			<tr class="prop" >
 				<td class="name" ><label for="bName" >Nazwa tablicy:</label></td>
@@ -27,7 +27,7 @@
 			</tr>
 			<tr>
 			<td></td>
-			<td><input type="submit" value="Utworz" /></td>
+			<td><g:submitButton name="create" class="save" value="${message(code: 'default.button.create.label', default: 'Create')}" />
 			</tr>
 		</table>
 	</g:form>
