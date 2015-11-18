@@ -3,6 +3,9 @@ package grello
 class BoardController extends SecureController{
 		static allowedMethods = [save: "POST", update: "PUT", delete: "DELETE"]
    
+		def operationHistoryService
+		def operationCode
+		
 	def index() {
 		
 		[ boardList: Board.list( params ) ]
@@ -13,12 +16,13 @@ class BoardController extends SecureController{
 		
 		}
 	def delete (Board board) {
+		operationCode = "delete board"+"$board.boardName"
 		if(board == null){
 			flash.message = message(code: 'default.updated.message', args: [message(code: 'Board.label', default: 'Board'), board.id])
 			return
 		} 
 		board.delete flush:true
-
+		operationHistoryService.addToHistory(operationCode)
         request.withFormat {
             form multipartForm {
                 flash.message = message(code: 'default.deleted.message', args: [message(code: 'Board.label', default: 'Board'), board.id])
@@ -40,7 +44,7 @@ class BoardController extends SecureController{
 		}
 	
 	def update(Board board) {
-		 
+		operationCode = "update board"+"$board.boardName"
 		if(board == null) {
 			request.withFormat {
             form multipartForm {
@@ -56,6 +60,7 @@ class BoardController extends SecureController{
 			return
 		}
 		board.save flush:true
+		operationHistoryService.addToHistory(operationCode)
 		request.withFormat {
             form multipartForm {
                 flash.message = message(code: 'default.updated.message', args: [message(code: 'board.label', default: 'Board'), board.id])
@@ -69,6 +74,7 @@ class BoardController extends SecureController{
 		
 		}
 	def save (Board board){
+		operationCode = "create new board"+"$board.boardName"
 		if (board == null) {
 			flash.message = message(code: 'default.not.found.message', args: [message(code: 'board.label', default: 'Board'), params.id])
 			return
@@ -78,6 +84,7 @@ class BoardController extends SecureController{
 			return
 		}
 		board.save flush:true
+		operationHistoryService.addToHistory(operationCode)
 		 request.withFormat {
             form multipartForm {
                 flash.message = message(code: 'default.created.message', args: [message(code: 'board.label', default: 'Board'), board.id])

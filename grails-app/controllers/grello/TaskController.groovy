@@ -3,6 +3,9 @@ package grello
 class TaskController extends SecureController{
 	static allowedMethods = [save: "POST", update: "PUT", delete: "DELETE"]
 	
+	def operationHistoryService
+	def operationCode
+	
 	 def index() {
 		 
 		 [ taskList: Task.list( params ) ]
@@ -13,12 +16,13 @@ class TaskController extends SecureController{
 		 
 		 }
 	 def delete (Task task) {
+		 operationCode = "delete task "+"$task.taskName"
 		 if(task == null){
 			 flash.message = message(code: 'default.updated.message', args: [message(code: 'Task.label', default: 'Task'), task.id])
 			 return
 		 }
 		 task.delete flush:true
- 
+		 operationHistoryService.addToHistory(operationCode)
 		 request.withFormat {
 			 form multipartForm {
 				 flash.message = message(code: 'default.deleted.message', args: [message(code: 'Task.label', default: 'Task'), task.id])
@@ -40,7 +44,8 @@ class TaskController extends SecureController{
 		 }
 	 
 	 def update(Task task) {
-		  
+		 operationCode = "update task "+"$task.taskName"
+		 
 		 if(task == null) {
 			 request.withFormat {
 			 form multipartForm {
@@ -56,6 +61,7 @@ class TaskController extends SecureController{
 			 return
 		 }
 		 task.save flush:true
+		 operationHistoryService.addToHistory(operationCode)
 		 request.withFormat {
 			 form multipartForm {
 				 flash.message = message(code: 'default.updated.message', args: [message(code: 'Task.label', default: 'Task'), task.id])
@@ -69,6 +75,7 @@ class TaskController extends SecureController{
 		 
 		 }
 	 def save (Task task){
+		 operationCode = "create new task "+"$task.taskName"
 		 if (task == null) {
 			 flash.message = message(code: 'default.not.found.message', args: [message(code: 'task.label', default: 'Task'), params.id])
 			 return
@@ -78,6 +85,7 @@ class TaskController extends SecureController{
 			 return
 		 }
 		 task.save flush:true
+		 operationHistoryService.addToHistory(operationCode)
 		  request.withFormat {
 			 form multipartForm {
 				 flash.message = message(code: 'default.created.message', args: [message(code: 'task.label', default: 'Task'), task.id])
