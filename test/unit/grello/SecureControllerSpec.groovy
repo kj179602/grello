@@ -5,7 +5,7 @@ import spock.lang.Specification
 
 /**
  * See the API for {@link grails.test.mixin.web.ControllerUnitTestMixin} for usage instructions
- *//*
+ */
 @TestFor(SecureController)
 class SecureControllerSpec extends Specification {
 
@@ -17,4 +17,4 @@ class SecureControllerSpec extends Specification {
 
     void "test something"() {
     }
-}*/
+}

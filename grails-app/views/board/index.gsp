@@ -1,34 +1,46 @@
+
+<%@ page import="grello.Board" %>
 <!DOCTYPE html>
-<!--[if lt IE 7 ]> <html lang="en" class="no-js ie6"> <![endif]-->
-<!--[if IE 7 ]>    <html lang="en" class="no-js ie7"> <![endif]-->
-<!--[if IE 8 ]>    <html lang="en" class="no-js ie8"> <![endif]-->
-<!--[if IE 9 ]>    <html lang="en" class="no-js ie9"> <![endif]-->
-<!--[if (gt IE 9)|!(IE)]><!--> <html lang="en" class="no-js"><!--<![endif]-->
+<html>
 	<head>
 		<meta name="layout" content="main">
 		<g:set var="entityName" value="${message(code: 'board.label', default: 'Board')}" />
-		<title>Boards</title>
+		<title><g:message code="default.list.label" args="[entityName]" /></title>
 	</head>
-	
 	<body>
+		<a href="#list-board" class="skip" tabindex="-1"><g:message code="default.link.skip.label" default="Skip to content&hellip;"/></a>
 		<div class="nav" role="navigation">
 			<ul>
-                <li><g:link controller="board">Tablice</g:link></li>
-                 <li><a href="/grello/board/create">New board</a></li>
-               <!--   <li><a href="/logout">Logout</a></li> -->
+				<li><a class="home" href="${createLink(uri: '/')}"><g:message code="default.home.label"/></a></li>
+				<li><g:link class="create" action="create"><g:message code="default.new.label" args="[entityName]" /></g:link></li>
 			</ul>
 		</div>
-	
-	<br>
-		<table>
+		<div id="list-board" class="content scaffold-list" role="main">
+			<h1><g:message code="default.list.label" args="[entityName]" /></h1>
+			<g:if test="${flash.message}">
+				<div class="message" role="status">${flash.message}</div>
+			</g:if>
+			<table>
 			<thead>
 					<tr>
-						
-							<g:each in="${boards}" var="board">
-							<p>${board.boardName}</p>
-							</g:each>		
+					
+						<g:sortableColumn property="boardName" title="${message(code: 'board.boardName.label', default: 'Board Name')}" />
+					
 					</tr>
-			</thead>
-		</table>
+				</thead>
+				<tbody>
+				<g:each in="${boardInstanceList}" status="i" var="boardInstance">
+					<tr class="${(i % 2) == 0 ? 'even' : 'odd'}">
+					
+						<td><g:link action="show" id="${boardInstance.id}">${fieldValue(bean: boardInstance, field: "boardName")}</g:link></td>
+					
+					</tr>
+				</g:each>
+				</tbody>
+			</table>
+			<div class="pagination">
+				<g:paginate total="${boardInstanceCount ?: 0}" />
+			</div>
+		</div>
 	</body>
 </html>

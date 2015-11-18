@@ -6,7 +6,7 @@ import spock.lang.Specification
 /**
  * See the API for {@link grails.test.mixin.web.ControllerUnitTestMixin} for usage instructions
  */
-/*@TestFor(UserController)
+@TestFor(UserController)
 class UserControllerSpec extends Specification {
 
     def setup() {
@@ -17,4 +17,4 @@ class UserControllerSpec extends Specification {
 
     void "test something"() {
     }
-}*/
+}
