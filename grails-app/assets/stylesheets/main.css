@@ -11,7 +11,7 @@ h1, h2, h3, h4, h5, h6 {
 /* BASE LAYOUT */
 
 html {
-	background-color: #ddd;
+	background-color: #c1cbe6;
 	background-image: -moz-linear-gradient(center top, #aaa, #ddd);
 	background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0, #aaa), color-stop(1, #ddd));
 	background-image: linear-gradient(top, #aaa, #ddd);
@@ -25,7 +25,7 @@ html {
 }
 
 html.no-cssgradients {
-	background-color: #aaa;
+	background-color: #afbfda;
 }
 
 .ie6 html {
@@ -38,7 +38,7 @@ html * {
 
 body {
 	background: #2078C0;
-	color: #333333;
+	color: #ffffff;
 	margin: 0 auto;
 	max-width: 960px;
 	overflow-x: hidden; /* prevents box-shadow causing a horizontal scrollbar in firefox when viewport < 960px wide */
@@ -65,7 +65,7 @@ body {
 }
 
 a:link, a:visited, a:hover {
-	color: #73D2EC;
+	color: #9acee7;
 }
 
 a:hover, a:active {
@@ -73,7 +73,7 @@ a:hover, a:active {
 }
 
 h1 {
-	color: #73D2EC;
+	color: #9acee7;
 	font-weight: normal;
 	font-size: 1.25em;
 	margin: 0.8em 0 0.3em 0;
@@ -118,7 +118,7 @@ img {
 }
 
 .footer a {
-	color: #15515e;
+	color: #14455f;
 }
 
 .spinner {
@@ -158,7 +158,7 @@ img {
 }
 
 .nav a {
-	color: #ffffff;
+	color: #000000;
 	display: block;
 	padding: 0.25em 0.7em;
 	text-decoration: none;
@@ -173,7 +173,7 @@ img {
 
 .nav a:focus, .nav a:hover {
 	background-color: #b6d5fa;
-	color: #2078C0;
+	color: #ffffff;
 	outline: none;
 	text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.8);
 }
@@ -274,7 +274,7 @@ input[type=checkbox], input[type=radio] {
 }
 
 input:focus, select:focus, textarea:focus {
-	background-color: #2078C0;
+	background-color: #dcf8fa;
 	border: 1px solid #eeeeee;
 	outline: 0;
 	   -moz-box-shadow: 0 0 0.5em #2078C0;
@@ -337,7 +337,7 @@ fieldset.embedded legend {
 .message {
 	background: #f3f3ff;
 	border: 1px solid #b2d1ff;
-	color: #006dba;
+	color: #ffffff;
 	   -moz-box-shadow: 0 0 0.25em #b2d1ff;
 	-webkit-box-shadow: 0 0 0.25em #b2d1ff;
 	        box-shadow: 0 0 0.25em #b2d1ff;
@@ -536,7 +536,7 @@ th:hover, tr:hover {
 .buttons a {
 	background-color: transparent;
 	border: 0;
-	color: #ffffff;
+	color: #163569;
 	cursor: pointer;
 	display: inline-block;
 	margin: 0 0.25em 0;
@@ -552,7 +552,7 @@ th:hover, tr:hover {
 .buttons input:hover, .buttons input:focus,
 .buttons a:hover, .buttons a:focus {
 	background-color: #999999;
-	color: #2078C0;
+	color: #dbebf9;
 	outline: none;
 	text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.8);
 	   -moz-box-shadow: none;
