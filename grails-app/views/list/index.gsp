@@ -14,6 +14,7 @@
 				<li><a class="home" href="${createLink(uri: '/')}"><g:message code="default.home.label"/></a></li>
 				<li><a href="${createLink(uri: '/user/logout')}">Logout</a></li>
 				<li><a href="${createLink(uri: '/board/index')}">Board</a></li>
+
 				<li><g:link class="create" action="create"><g:message code="default.new.label" args="[entityName]" /></g:link></li>
 			</ul>
 		</div>
@@ -30,6 +31,7 @@
 					
 						<th><g:message code="list.board.label" default="Board" /></th>
 					
+
 					</tr>
 				</thead>
 				<tbody>
@@ -39,12 +41,12 @@
 						<td><g:link action="show" id="${lists.id}">${fieldValue(bean: lists, field: "listName")}</g:link></td>
 					
 						<td>${fieldValue(bean: lists, field: "board")}</td>
-					
+
 					</tr>
 				</g:each>
 				</tbody>
 			</table>
-			
+
 		</div>
 	</body>
 </html>

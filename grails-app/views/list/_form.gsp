@@ -2,16 +2,20 @@
 
 
 
+
 <div class="fieldcontain ${hasErrors(bean: lists, field: 'listName', 'error')} required">
+
 	<label for="listName">
 		<g:message code="list.listName.label" default="List Name" />
 		<span class="required-indicator">*</span>
 	</label>
+
 	<g:textField name="listName" required="" value="${lists?.listName}"/>
 
 </div>
 
 <div class="fieldcontain ${hasErrors(bean: lists, field: 'board', 'error')} required">
+
 	<label for="board">
 		<g:message code="list.board.label" default="Board" />
 		<span class="required-indicator">*</span>
@@ -34,7 +38,6 @@
 <g:link controller="task" action="create" params="['list.id': lists?.id]">${message(code: 'default.add.label', args: [message(code: 'task.label', default: 'Task')])}</g:link>
 </li>
 </ul>
-
 
 </div>
 
