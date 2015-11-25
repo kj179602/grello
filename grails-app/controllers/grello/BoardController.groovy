@@ -8,7 +8,8 @@ class BoardController extends SecureController{
 		
 	def index() {
 		
-		[ boardList: Board.list( params ) ]
+		def boardList = [ boardList: Board.list( params) ]
+		
 		}
 	
 	def show () {
