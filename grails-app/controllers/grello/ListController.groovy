@@ -15,6 +15,7 @@ class ListController extends SecureController{
 	def show () {
 		[ lists : List.get( params.id ) ]
 		
+		
 		}
 	def delete (List lists) {
 		operationCode = "delete list "+"$lists.listName"

@@ -1,6 +1,7 @@
 import grello.Board
 import grello.User
 import grello.List
+import grello.Task
 class BootStrap {
 
     def init = { servletContext ->
@@ -30,6 +31,10 @@ class BootStrap {
 			listName: 'lista',
 			board: Board.findByBoardName('moja tablica')).save()
 	
+		new Task(
+			taskName: 'zadanie1',
+			list: List.findByListName('lista1')).save()
+			
     }
 	
     def destroy = {

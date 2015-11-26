@@ -13,9 +13,11 @@
 			<ul>
 				<li><a class="home" href="${createLink(uri: '/')}"><g:message code="default.home.label"/></a></li>
 				<li><a href="${createLink(uri: '/user/logout')}">Logout</a></li>
+				<li><a href="${createLink(uri: '/operationHistory/index')}">History</a></li>
 				<li><a href="${createLink(uri: '/board/index')}">Board</a></li>
 				<li><a href="${createLink(uri: '/list/index')}">List</a></li>
-				<li><g:link class="list" action="index"><g:message code="default.list.label" args="[entityName]" /></g:link></li>
+				<li><a href="${createLink(uri: '/task/index')}">Task</a></li>
+				<li><a href="${createLink(uri: '/comments/index')}">Comments</a></li>
 				<li><g:link class="create" action="create"><g:message code="default.new.label" args="[entityName]" /></g:link></li>
 			</ul>
 		</div>
@@ -40,6 +42,17 @@
 					<span id="description-label" class="property-label"><g:message code="task.description.label" default="Description" /></span>
 					
 						<span class="property-value" aria-labelledby="description-label"><g:fieldValue bean="${task}" field="description"/></span>
+					
+				</li>
+				</g:if>
+			
+				<g:if test="${task?.comments}">
+				<li class="fieldcontain">
+					<span id="comments-label" class="property-label"><g:message code="task.comments.label" default="Comments" /></span>
+					
+						<g:each in="${task.comments}" var="c">
+						<span class="property-value" aria-labelledby="comments-label"><g:link controller="comments" action="show" id="${c.id}">${c?.encodeAsHTML()}</g:link></span>
+						</g:each>
 					
 				</li>
 				</g:if>

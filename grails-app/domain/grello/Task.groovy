@@ -5,7 +5,7 @@ class Task {
 	String taskName
 	String description
 	List list
-	
+	static hasMany = [comments: Comments]
 	static belongsTo = List
 	static constraints = {
 		taskName()
