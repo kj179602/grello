@@ -46,6 +46,15 @@
 				</li>
 				</g:if>
 			
+				<g:if test="${task?.taskUser}">
+				<li class="fieldcontain">
+					<span id="taskUser-label" class="property-label"><g:message code="task.taskUser.label" default="Task User" /></span>
+					
+						<span class="property-value" aria-labelledby="taskUser-label"><g:link controller="user" action="show" id="${task?.taskUser?.id}">${task?.taskUser?.encodeAsHTML()}</g:link></span>
+					
+				</li>
+				</g:if>
+			
 				<g:if test="${task?.comments}">
 				<li class="fieldcontain">
 					<span id="comments-label" class="property-label"><g:message code="task.comments.label" default="Comments" /></span>

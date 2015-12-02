@@ -62,7 +62,7 @@ grails {
 
 grails.converters.encoding = "UTF-8"
 // scaffolding templates configuration
-grails.scaffolding.templates.domainSuffix = 'Instance'
+//grails.scaffolding.templates.domainSuffix = 'Instance'
 
 // Set to false to use the new Grails 1.2 JSONBuilder in the render method
 grails.json.legacy.builder = false
@@ -87,9 +87,11 @@ grails.hibernate.osiv.readonly = false
 
 environments {
     development {
+		uploadFolder = "c:/temp/upload/"
         grails.logging.jul.usebridge = true
     }
     production {
+		uploadFolder = "c:/temp/upload/"
         grails.logging.jul.usebridge = false
         // TODO: grails.serverURL = "http://www.changeme.com"
     }

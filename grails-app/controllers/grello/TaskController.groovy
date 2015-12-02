@@ -94,5 +94,6 @@ class TaskController extends SecureController{
 			 '*' { respond task, [status: CREATED] }
 		 }
 	 }
+	 
  }
 

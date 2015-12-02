@@ -34,17 +34,17 @@
 					</tr>
 				</thead>
 				<tbody>
-				<g:each in="${operationHistoryInstanceList}" status="i" var="operationHistoryInstance">
+				<g:each in="${operationHistoryList}" status="i" var="operationHistory">
 					<tr class="${(i % 2) == 0 ? 'even' : 'odd'}">
 					
-						<td><g:link action="show" id="${operationHistoryInstance.id}">${fieldValue(bean: operationHistoryInstance, field: "operationName")}</g:link></td>
+						<td><g:link action="show" id="${operationHistory.id}">${fieldValue(bean: operationHistory, field: "operationName")}</g:link></td>
 					
 					</tr>
 				</g:each>
 				</tbody>
 			</table>
 			<div class="pagination">
-				<g:paginate total="${operationHistoryInstanceCount ?: 0}" />
+				<g:paginate total="${operationHistoryCount ?: 0}" />
 			</div>
 		</div>
 	</body>

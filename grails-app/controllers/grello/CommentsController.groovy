@@ -17,7 +17,7 @@ class CommentsController extends SecureController{
 		 
 		 }
 	 def delete (Comments comments) {
-		 operationCode = "delete comments "+"$comments.commentCreater.firstName"
+		 operationCode = "delete comments by "+"$comments.commentCreater.firstName"
 		 if(comments == null){
 			 flash.message = message(code: 'default.updated.message', args: [message(code: 'Comments.label', default: 'Comments'), comments.id])
 			 return
@@ -45,7 +45,7 @@ class CommentsController extends SecureController{
 		 }
 	 
 	 def update(Comments comments) {
-		 operationCode = "update comments "+"$comments.commentCreater.firstName"
+		 operationCode = "update comments by "+"$comments.commentCreater.firstName"
 		 
 		 if(comments == null) {
 			 request.withFormat {
@@ -76,7 +76,7 @@ class CommentsController extends SecureController{
 		 
 		 }
 	 def save (Comments comments){
-		 operationCode = "create new comments "+"$comments.commentCreater.firstName"
+		 operationCode = "create new comments by "+"$comments.commentCreater.firstName"
 		 if (comments == null) {
 			 flash.message = message(code: 'default.not.found.message', args: [message(code: 'comments.label', default: 'Comments'), params.id])
 			 return

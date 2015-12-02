@@ -8,6 +8,7 @@ class User {
 	String lastName
 	String email
 	
+	
     static constraints = {
 		login(unique:true,length:5..15)
 		password(matches:/[\w\d]+/, length:6..12)

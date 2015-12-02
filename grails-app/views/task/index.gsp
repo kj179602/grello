@@ -12,14 +12,13 @@
 		<div class="nav" role="navigation">
 			<ul>
 				<li><a class="home" href="${createLink(uri: '/')}"><g:message code="default.home.label"/></a></li>
-				<<li><a href="${createLink(uri: '/user/logout')}">Logout</a></li>
+				<li><a href="${createLink(uri: '/user/logout')}">Logout</a></li>
 				<li><a href="${createLink(uri: '/operationHistory/index')}">History</a></li>
 				<li><a href="${createLink(uri: '/board/index')}">Board</a></li>
 				<li><a href="${createLink(uri: '/list/index')}">List</a></li>
 				<li><a href="${createLink(uri: '/task/index')}">Task</a></li>
 				<li><a href="${createLink(uri: '/comments/index')}">Comments</a></li>
-				
-		<li><g:link class="create" action="create"><g:message code="default.new.label" args="[entityName]" /></g:link></li>
+				<li><g:link class="create" action="create"><g:message code="default.new.label" args="[entityName]" /></g:link></li>
 			</ul>
 		</div>
 		<div id="list-task" class="content scaffold-list" role="main">
@@ -35,6 +34,8 @@
 					
 						<g:sortableColumn property="description" title="${message(code: 'task.description.label', default: 'Description')}" />
 					
+						<th><g:message code="task.taskUser.label" default="Task User" /></th>
+					
 						<th><g:message code="task.list.label" default="List" /></th>
 					
 					</tr>
@@ -46,6 +47,8 @@
 						<td><g:link action="show" id="${task.id}">${fieldValue(bean: task, field: "taskName")}</g:link></td>
 					
 						<td>${fieldValue(bean: task, field: "description")}</td>
+					
+						<td>${fieldValue(bean: task, field: "taskUser")}</td>
 					
 						<td>${fieldValue(bean: task, field: "list")}</td>
 					

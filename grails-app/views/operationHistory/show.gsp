@@ -28,17 +28,17 @@
 			</g:if>
 			<ol class="property-list operationHistory">
 			
-				<g:if test="${operationHistoryInstance?.operationName}">
+				<g:if test="${operationHistory?.operationName}">
 				<li class="fieldcontain">
 					<span id="operationName-label" class="property-label"><g:message code="operationHistory.operationName.label" default="Operation Name" /></span>
 					
-						<span class="property-value" aria-labelledby="operationName-label"><g:fieldValue bean="${operationHistoryInstance}" field="operationName"/></span>
+						<span class="property-value" aria-labelledby="operationName-label"><g:fieldValue bean="${operationHistory}" field="operationName"/></span>
 					
 				</li>
 				</g:if>
 			
 			</ol>
-			<g:form url="[resource:operationHistoryInstance, action:'delete']" method="DELETE">
+			<g:form url="[resource:operationHistory, action:'delete']" method="DELETE">
 				<fieldset class="buttons">
 					
 					<g:actionSubmit class="delete" action="delete" value="${message(code: 'default.button.delete.label', default: 'Delete')}" onclick="return confirm('${message(code: 'default.button.delete.confirm.message', default: 'Are you sure?')}');" />

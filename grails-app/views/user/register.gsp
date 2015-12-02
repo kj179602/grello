@@ -38,6 +38,10 @@
 				<td class="value" ><input type="text" id="email" name="email" value="" ></td>
 			</tr>
 			<tr>
+			
+			</tr>
+			<tr>
+			
 				<td></td>
 				<td><input type="submit" value="register" /></td>
 			</tr>

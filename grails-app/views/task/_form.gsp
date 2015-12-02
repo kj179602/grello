@@ -20,6 +20,15 @@
 
 </div>
 
+<div class="fieldcontain ${hasErrors(bean: task, field: 'taskUser', 'error')} ">
+	<label for="taskUser">
+		<g:message code="task.taskUser.label" default="Task User" />
+		
+	</label>
+	<g:select id="taskUser" name="taskUser.id" from="${grello.User.list()}" optionKey="id" value="${task?.taskUser?.id}" class="many-to-one" noSelection="['null': '']"/>
+
+</div>
+
 <div class="fieldcontain ${hasErrors(bean: task, field: 'comments', 'error')} ">
 	<label for="comments">
 		<g:message code="task.comments.label" default="Comments" />
