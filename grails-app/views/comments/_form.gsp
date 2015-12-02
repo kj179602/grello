@@ -3,11 +3,11 @@
 
 
 <div class="fieldcontain ${hasErrors(bean: comments, field: 'commentCreater', 'error')} required">
-	<label for="commentCreater">
+	<label for="commentCreater.firstName">
 		<g:message code="comments.commentCreater.label" default="Comment Creater" />
 		<span class="required-indicator">*</span>
 	</label>
-	<g:select id="commentCreater" name="commentCreater.id" from="${grello.User.list()}" optionKey="id" required="" value="${comments?.commentCreater?.id}" class="many-to-one"/>
+	<g:select id="commentCreater" name="commentCreater.id" from="${grello.User.list()}" optionKey="id" required="" value="${comments?.commentCreater?.firstName}" class="many-to-one"/>
 
 </div>
 
@@ -16,7 +16,7 @@
 		<g:message code="comments.commentContent.label" default="Comment Content" />
 		<span class="required-indicator">*</span>
 	</label>
-	<g:textField name="commentContent" required="" value="${comments?.commentContent?.firstName}"/>
+	<g:textField name="commentContent" required="" value="${comments?.commentContent}"/>
 
 </div>
 

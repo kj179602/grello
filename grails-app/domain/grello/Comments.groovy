@@ -9,13 +9,13 @@ class Comments {
 	static belongsTo = Task
 	static constraints = {
 		
-		commentCreater(nullable:false)
+		commentCreater()
 		commentContent(nullable:false, maxLength:1000)
 		
 	}
 	
 	String toString(){
-		return "$commentCreater.firstName" 
+		commentCreater.firstName 
 		 
 	}
 	}
