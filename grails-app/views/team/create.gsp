@@ -2,16 +2,15 @@
 <html>
 	<head>
 		<meta name="layout" content="main">
-		<g:set var="entityName" value="${message(code: 'board.label', default: 'Board')}" />
+		<g:set var="entityName" value="${message(code: 'team.label', default: 'Team')}" />
 		<title><g:message code="default.create.label" args="[entityName]" /></title>
 	</head>
 	<body>
-		<a href="#create-board" class="skip" tabindex="-1"><g:message code="default.link.skip.label" default="Skip to content&hellip;"/></a>
+		<a href="#create-team" class="skip" tabindex="-1"><g:message code="default.link.skip.label" default="Skip to content&hellip;"/></a>
 		<div class="nav" role="navigation">
 			<ul>
 				<li><a class="home" href="${createLink(uri: '/')}"><g:message code="default.home.label"/></a></li>
 				<li><a href="${createLink(uri: '/user/logout')}">Logout</a></li>
-				<li><a href="${createLink(uri: '/team/index')}">Team</a></li>
 				<li><a href="${createLink(uri: '/operationHistory/index')}">History</a></li>
 				<li><a href="${createLink(uri: '/team/index')}">Team</a></li>
 				<li><a href="${createLink(uri: '/board/index')}">Board</a></li>
@@ -20,23 +19,19 @@
 				<li><a href="${createLink(uri: '/comments/index')}">Comments</a></li>
 			</ul>
 		</div>
-		<div id="create-board" class="content scaffold-create" role="main">
+		<div id="create-team" class="content scaffold-create" role="main">
 			<h1><g:message code="default.create.label" args="[entityName]" /></h1>
 			<g:if test="${flash.message}">
 			<div class="message" role="status">${flash.message}</div>
 			</g:if>
-
-			<g:hasErrors bean="${board}">
+			<g:hasErrors bean="${team}">
 			<ul class="errors" role="alert">
-				<g:eachError bean="${board}" var="error">
-
+				<g:eachError bean="${team}" var="error">
 				<li <g:if test="${error in org.springframework.validation.FieldError}">data-field-id="${error.field}"</g:if>><g:message error="${error}"/></li>
 				</g:eachError>
 			</ul>
 			</g:hasErrors>
-
-			<g:form url="[resource:board, action:'save']" >
-
+			<g:form url="[resource:team, action:'save']" >
 				<fieldset class="form">
 					<g:render template="form"/>
 				</fieldset>

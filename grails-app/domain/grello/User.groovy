@@ -15,6 +15,7 @@ class User {
 		email(email:true)
 		firstName(blank:false)
 		lastName(blank:false)
+		
     }
 	String toString(){
 		firstName

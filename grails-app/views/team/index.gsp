@@ -1,27 +1,28 @@
 
-<%@ page import="grello.Board" %>
+<%@ page import="grello.Team" %>
 <!DOCTYPE html>
 <html>
 	<head>
 		<meta name="layout" content="main">
-		<g:set var="entityName" value="${message(code: 'board.label', default: 'Board')}" />
+		<g:set var="entityName" value="${message(code: 'team.label', default: 'Team')}" />
 		<title><g:message code="default.list.label" args="[entityName]" /></title>
 	</head>
 	<body>
-		<a href="#list-board" class="skip" tabindex="-1"><g:message code="default.link.skip.label" default="Skip to content&hellip;"/></a>
+		<a href="#list-team" class="skip" tabindex="-1"><g:message code="default.link.skip.label" default="Skip to content&hellip;"/></a>
 		<div class="nav" role="navigation">
 			<ul>
 				<li><a class="home" href="${createLink(uri: '/')}"><g:message code="default.home.label"/></a></li>
 				<li><a href="${createLink(uri: '/user/logout')}">Logout</a></li>
-				
 				<li><a href="${createLink(uri: '/operationHistory/index')}">History</a></li>
-				<li><a href="${createLink(uri: '/team/index')}">Team</a></li>
-
-
+				
+				<li><a href="${createLink(uri: '/board/index')}">Board</a></li>
+				<li><a href="${createLink(uri: '/list/index')}">List</a></li>
+				<li><a href="${createLink(uri: '/task/index')}">Task</a></li>
+				<li><a href="${createLink(uri: '/comments/index')}">Comments</a></li>
 				<li><g:link class="create" action="create"><g:message code="default.new.label" args="[entityName]" /></g:link></li>
 			</ul>
 		</div>
-		<div id="list-board" class="content scaffold-list" role="main">
+		<div id="list-team" class="content scaffold-list" role="main">
 			<h1><g:message code="default.list.label" args="[entityName]" /></h1>
 			<g:if test="${flash.message}">
 				<div class="message" role="status">${flash.message}</div>
@@ -30,23 +31,23 @@
 			<thead>
 					<tr>
 					
-						<g:sortableColumn property="boardName" title="${message(code: 'board.boardName.label', default: 'Board Name')}" />
+						<g:sortableColumn property="teamName" title="${message(code: 'team.teamName.label', default: 'Team Name')}" />
 					
 					</tr>
 				</thead>
 				<tbody>
-
-				<g:each in="${boardList}" status="i" var="board">
+				<g:each in="${teamList}" status="i" var="team">
 					<tr class="${(i % 2) == 0 ? 'even' : 'odd'}">
 					
-						<td><g:link action="show" id="${board.id}">${fieldValue(bean: board, field: "boardName")}</g:link></td>
-
+						<td><g:link action="show" id="${team.id}">${fieldValue(bean: team, field: "teamName")}</g:link></td>
+					
 					</tr>
 				</g:each>
 				</tbody>
 			</table>
-			
-
+			<div class="pagination">
+				<g:paginate total="${teamCount ?: 0}" />
+			</div>
 		</div>
 	</body>
 </html>

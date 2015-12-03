@@ -12,7 +12,22 @@ class BootStrap {
 			password: 'log' ,
 			email: 'sa@wp.org' 
 			).save()
-			
+		
+		new User(
+				login: 'sarah',
+				firstName: 'Sarah' ,
+				lastName: 'Smith' ,
+				password: '12345' ,
+				email: 'sb@wp.org'
+				).save()
+		new User(
+					login: 'bill',
+					firstName: 'Bill' ,
+					lastName: 'Martin' ,
+					password: '54321' ,
+					email: 'sc@wp.org'
+					).save()
+					
 		new Board(
 			boardName: 'tablica').save()
 		new Board(

@@ -1,4 +1,4 @@
-<%@ page import="grello.Task" %>
+%@ page import="grello.Task" %>
 
 
 
