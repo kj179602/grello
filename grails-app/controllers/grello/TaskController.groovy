@@ -1,6 +1,12 @@
 package grello
 
-class TaskController extends SecureController{
+
+
+import static org.springframework.http.HttpStatus.*
+import grails.transaction.Transactional
+
+
+class TaskController {
 	static allowedMethods = [save: "POST", update: "PUT", delete: "DELETE"]
 	
 	def operationHistoryService
@@ -95,5 +101,5 @@ class TaskController extends SecureController{
 		 }
 	 }
 	 
+	 
  }
-

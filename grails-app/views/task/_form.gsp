@@ -1,4 +1,4 @@
-%@ page import="grello.Task" %>
+<%@ page import="grello.Task" %>
 
 
 
@@ -42,6 +42,10 @@
 <li class="add">
 <g:link controller="comments" action="create" params="['task.id': task?.id]">${message(code: 'default.add.label', args: [message(code: 'comments.label', default: 'Comments')])}</g:link>
 </li>
+			<g:form action="upload" enctype="multipart/form-data">
+<input type="file" name="document" />
+<input type="submit" value="Upload! " />
+</g:form>
 </ul>
 
 
