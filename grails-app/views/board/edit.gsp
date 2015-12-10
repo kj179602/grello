@@ -10,14 +10,10 @@
 		<a href="#edit-board" class="skip" tabindex="-1"><g:message code="default.link.skip.label" default="Skip to content&hellip;"/></a>
 		<div class="nav" role="navigation">
 			<ul>
-				
-								<li><a href="${createLink(uri: '/user/logout')}">Logout</a></li>
+				<li><a href="${createLink(uri: '/user/logout')}">Logout</a></li>
 				<li><a href="${createLink(uri: '/operationHistory/index')}">History</a></li>
 				<li><a href="${createLink(uri: '/team/index')}">Team</a></li>
 				<li><a href="${createLink(uri: '/board/index')}">Board</a></li>
-				<li><a href="${createLink(uri: '/list/index')}">List</a></li>
-				<li><a href="${createLink(uri: '/task/index')}">Task</a></li>
-				<li><a href="${createLink(uri: '/comments/index')}">Comments</a></li>
 				<li><g:link class="create" action="create"><g:message code="default.new.label" args="[entityName]" /></g:link></li>
 			</ul>
 		</div>
@@ -26,19 +22,15 @@
 			<g:if test="${flash.message}">
 			<div class="message" role="status">${flash.message}</div>
 			</g:if>
-
 			<g:hasErrors bean="${board}">
 			<ul class="errors" role="alert">
 				<g:eachError bean="${board}" var="error">
-
 				<li <g:if test="${error in org.springframework.validation.FieldError}">data-field-id="${error.field}"</g:if>><g:message error="${error}"/></li>
 				</g:eachError>
 			</ul>
 			</g:hasErrors>
-
 			<g:form url="[resource:board, action:'update']" method="PUT" >
 				<g:hiddenField name="version" value="${board?.version}" />
-
 				<fieldset class="form">
 					<g:render template="form"/>
 				</fieldset>

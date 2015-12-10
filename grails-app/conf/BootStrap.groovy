@@ -29,9 +29,9 @@ class BootStrap {
 					).save()
 					
 		new Board(
-			boardName: 'tablica').save()
+			boardName: 'tablica', boardAuthor: User.findByFirstName('Jane')).save()
 		new Board(
-			boardName: 'moja tablica').save()
+			boardName: 'moja tablica', boardAuthor: User.findByFirstName('Jane')).save()
 			
 		new List(
 			listName: 'lista1',
