@@ -1,14 +1,14 @@
 
-<%@ page import="grello.OperationHistory" %>
+<%@ page import="grello.Document" %>
 <!DOCTYPE html>
 <html>
 	<head>
 		<meta name="layout" content="main">
-		<g:set var="entityName" value="${message(code: 'operationHistory.label', default: 'OperationHistory')}" />
+		<g:set var="entityName" value="${message(code: 'document.label', default: 'Document')}" />
 		<title><g:message code="default.list.label" args="[entityName]" /></title>
 	</head>
 	<body>
-		<a href="#list-operationHistory" class="skip" tabindex="-1"><g:message code="default.link.skip.label" default="Skip to content&hellip;"/></a>
+		<a href="#list-document" class="skip" tabindex="-1"><g:message code="default.link.skip.label" default="Skip to content&hellip;"/></a>
 		<div class="nav" role="navigation">
 			<ul>
 				
@@ -20,9 +20,10 @@
 				<li><a href="${createLink(uri: '/task/index')}">Task</a></li>
 				<li><a href="${createLink(uri: '/comments/index')}">Comments</a></li>
 				<li><a href="${createLink(uri: '/document/index')}">Document</a></li>
+				<li><g:link class="create" action="create"><g:message code="default.new.label" args="[entityName]" /></g:link></li>
 			</ul>
 		</div>
-		<div id="list-operationHistory" class="content scaffold-list" role="main">
+		<div id="list-document" class="content scaffold-list" role="main">
 			<h1><g:message code="default.list.label" args="[entityName]" /></h1>
 			<g:if test="${flash.message}">
 				<div class="message" role="status">${flash.message}</div>
@@ -31,22 +32,30 @@
 			<thead>
 					<tr>
 					
-						<g:sortableColumn property="operationName" title="${message(code: 'operationHistory.operationName.label', default: 'Operation Name')}" />
+						<g:sortableColumn property="documentName" title="${message(code: 'document.documentName.label', default: 'Document Name')}" />
+					
+						<th><g:message code="document.task.label" default="Task" /></th>
+					
+						<g:sortableColumn property="document" title="${message(code: 'document.document.label', default: 'Document')}" />
 					
 					</tr>
 				</thead>
 				<tbody>
-				<g:each in="${operationHistoryList}" status="i" var="operationHistory">
+				<g:each in="${documentList}" status="i" var="document">
 					<tr class="${(i % 2) == 0 ? 'even' : 'odd'}">
 					
-						<td><g:link action="show" id="${operationHistory.id}">${fieldValue(bean: operationHistory, field: "operationName")}</g:link></td>
+						<td><g:link action="show" id="${document.id}">${fieldValue(bean: document, field: "documentName")}</g:link></td>
+					
+						<td>${fieldValue(bean: document, field: "task")}</td>
+					
+						<td>${fieldValue(bean: document, field: "document")}</td>
 					
 					</tr>
 				</g:each>
 				</tbody>
 			</table>
 			<div class="pagination">
-				<g:paginate total="${operationHistoryCount ?: 0}" />
+				<g:paginate total="${documentCount ?: 0}" />
 			</div>
 		</div>
 	</body>

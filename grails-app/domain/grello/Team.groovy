@@ -8,6 +8,7 @@ class Team {
     static constraints = {
 		teamName()
 		
+		
 		   }
 	String toString(){
 		 "$teamName, $teamMembers"

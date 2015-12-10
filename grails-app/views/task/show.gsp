@@ -11,7 +11,7 @@
 		<a href="#show-task" class="skip" tabindex="-1"><g:message code="default.link.skip.label" default="Skip to content&hellip;"/></a>
 		<div class="nav" role="navigation">
 			<ul>
-				<li><a class="home" href="${createLink(uri: '/')}"><g:message code="default.home.label"/></a></li>
+				
 				<li><a href="${createLink(uri: '/user/logout')}">Logout</a></li>
 				<li><a href="${createLink(uri: '/operationHistory/index')}">History</a></li>
 				<li><a href="${createLink(uri: '/team/index')}">Team</a></li>
@@ -19,6 +19,7 @@
 				<li><a href="${createLink(uri: '/list/index')}">List</a></li>
 				<li><a href="${createLink(uri: '/task/index')}">Task</a></li>
 				<li><a href="${createLink(uri: '/comments/index')}">Comments</a></li>
+				<li><a href="${createLink(uri: '/document/index')}">Document</a></li>
 				<li><g:link class="create" action="create"><g:message code="default.new.label" args="[entityName]" /></g:link></li>
 			</ul>
 		</div>
@@ -62,6 +63,17 @@
 					
 						<g:each in="${task.comments}" var="c">
 						<span class="property-value" aria-labelledby="comments-label"><g:link controller="comments" action="show" id="${c.id}">${c?.encodeAsHTML()}</g:link></span>
+						</g:each>
+					
+				</li>
+				</g:if>
+			
+				<g:if test="${task?.documents}">
+				<li class="fieldcontain">
+					<span id="documents-label" class="property-label"><g:message code="task.documents.label" default="Documents" /></span>
+					
+						<g:each in="${task.documents}" var="d">
+						<span class="property-value" aria-labelledby="documents-label"><g:link controller="document" action="show" id="${d.id}">${d?.encodeAsHTML()}</g:link></span>
 						</g:each>
 					
 				</li>

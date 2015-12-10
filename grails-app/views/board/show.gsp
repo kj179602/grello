@@ -11,13 +11,13 @@
 		<a href="#show-board" class="skip" tabindex="-1"><g:message code="default.link.skip.label" default="Skip to content&hellip;"/></a>
 		<div class="nav" role="navigation">
 			<ul>
-				<li><a class="home" href="${createLink(uri: '/')}"><g:message code="default.home.label"/></a></li>
+				
 				<li><a href="${createLink(uri: '/user/logout')}">Logout</a></li>
 				<li><a href="${createLink(uri: '/operationHistory/index')}">History</a></li>
 				<li><a href="${createLink(uri: '/board/index')}">Board</a></li>
 				<li><a href="${createLink(uri: '/list/index')}">List</a></li>
 				<li><a href="${createLink(uri: '/task/index')}">Task</a></li>
-				<li><a href="${createLink(uri: '/comments/index')}">Comments</a></li>>
+				<li><a href="${createLink(uri: '/comments/index')}">Comments</a></li>
 				<li><g:link class="create" action="create"><g:message code="default.new.label" args="[entityName]" /></g:link></li>
 			</ul>
 		</div>

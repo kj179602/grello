@@ -42,10 +42,24 @@
 <li class="add">
 <g:link controller="comments" action="create" params="['task.id': task?.id]">${message(code: 'default.add.label', args: [message(code: 'comments.label', default: 'Comments')])}</g:link>
 </li>
-			<g:form action="upload" enctype="multipart/form-data">
-<input type="file" name="document" />
-<input type ="submit" value = "Upload"/>
-</g:form>
+</ul>
+
+
+</div>
+
+<div class="fieldcontain ${hasErrors(bean: task, field: 'documents', 'error')} ">
+	<label for="documents">
+		<g:message code="task.documents.label" default="Documents" />
+		
+	</label>
+	
+<ul class="one-to-many">
+<g:each in="${task?.documents?}" var="d">
+    <li><g:link controller="document" action="show" id="${d.id}">${d?.encodeAsHTML()}</g:link></li>
+</g:each>
+<li class="add">
+<g:link controller="document" action="create" params="['task.id': task?.id]">${message(code: 'default.add.label', args: [message(code: 'document.label', default: 'Document')])}</g:link>
+</li>
 </ul>
 
 
