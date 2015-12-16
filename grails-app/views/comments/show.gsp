@@ -11,7 +11,6 @@
 		<a href="#show-comments" class="skip" tabindex="-1"><g:message code="default.link.skip.label" default="Skip to content&hellip;"/></a>
 		<div class="nav" role="navigation">
 			<ul>
-				
 				<li><a href="${createLink(uri: '/user/logout')}">Logout</a></li>
 				<li><a href="${createLink(uri: '/operationHistory/index')}">History</a></li>
 				<li><a href="${createLink(uri: '/team/index')}">Team</a></li>

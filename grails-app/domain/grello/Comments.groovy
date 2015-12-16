@@ -15,7 +15,6 @@ class Comments {
 	}
 	
 	String toString(){
-		commentCreater.firstName 
-		 
+		
 	}
 	}
